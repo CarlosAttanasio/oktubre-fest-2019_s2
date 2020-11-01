@@ -1,0 +1,25 @@
+import marcas.*
+import Jarras.*
+import personas.*
+import carpas.*
+
+test "Marcas y Jarras" {
+	var rubia1 = new CervezaRubia (contenidoLupulo = 6, paisDeOrigen = "Mexico")
+	var rubia2 = new CervezaRubia (contenidoLupulo = 4, paisDeOrigen = "Alemania")
+	var negra1 = new CervezaNegra (contenidoLupulo = 2, paisDeOrigen = "Alemania")
+	var roja1 = new CervezaRoja (contenidoLupulo = 2, paisDeOrigen = "Alemania")
+	var negra2 = new CervezaNegra (contenidoLupulo = 3, paisDeOrigen = "Irlanda")
+	var roja2 = new CervezaRoja (contenidoLupulo = 3, paisDeOrigen = "Irlanda")
+	graduacionReglamentaria.graduacion(5)
+	rubia1.graduacion(4)
+	rubia2.graduacion(4.5)
+	var jarra1 = new Jarra (capacidad = 1, marca = rubia1)
+	var jarra2 = new Jarra (capacidad = 2, marca = roja2)
+	assert.equals(4,rubia1.graduacionAlcoholica())
+	assert.equals(4.5,rubia2.graduacionAlcoholica())
+	assert.equals(4,negra1.graduacionAlcoholica())
+	assert.equals(5,negra2.graduacionAlcoholica())
+	assert.equals(6.25,roja2.graduacionAlcoholica())
+	assert.equals(4,jarra1.contenidoAlcohol())
+	assert.equals(12.5,jarra2.contenidoAlcohol())
+}
